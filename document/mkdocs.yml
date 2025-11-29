@@ -1,13 +1,12 @@
-site_name: 3DGS based SLAM | Material Collection
-repo_url: https://github.com/jinghan-turtle/RL-learning
+site_name: RL-learning
+repo_url: https://github.com/jinghan-turtle/jinghan-blog
 repo_name: RL-learning
 copyright: Copyright &copy; 2025 jinghan-turtle
 
-
 theme:
   name: material
-  logo: assets/images/3D-Gaussians.png
-  favicon: assets/images/3D-Gaussians.png
+  logo: assets/images/blue-dog.png
+  favicon: assets/images/blue-dog.png
   custom_dir: overrides
 
   features:
@@ -49,27 +48,8 @@ theme:
 
 
 nav:
-  - Survey:
-    - Summary: index.md
-    - Related Material: src/Survey/related-material.md
-    - 3DGS-SLAM Paper List: src/Survey/paper-list.md
-  - 3DGS: 
-    - 3D Gaussian Splatting: src/3DGS/gaussian-splatting/gaussian-splatting.md
-    - Visual SLAM:
-      - SplaTAM: src/3DGS/3DGS-based_Visual_SLAM/SplaTAM.md
-      # - Gaussian Splatting SLAM: src/3DGS/3DGS-based_Visual_SLAM/Gaussian-Splatting-SLAM.md
-      - Photo-SLAM: src/3DGS/3DGS-based_Visual_SLAM/Photo-SLAM.md
-      - GS-ICP SLAM: src/3DGS/3DGS-based_Visual_SLAM/GS-ICP-SLAM.md
-      - SEGS-SLAM: src/3DGS/3DGS-based_Visual_SLAM/SEGS-SLAM.md
-    - Dynamic SLAM:
-      - src/3DGS/3DGS-based_Dynamic_SLAM/WildGS-SLAM.md
-      - src/3DGS/3DGS-based_Dynamic_SLAM/4D-Gaussian-Splatting-SLAM.md
-    - Semantic SLAM:
-      - src/3DGS/3DGS-based_Semantic_SLAM/SGS-SLAM.md
-    - Outdoor SLAM:
-      - src/3DGS/3DGS-based_Outdoor_SLAM/S3PO-GS-SLAM.md
-    # - Lidar SLAM:
-    #   - src/3DGS/3DGS-based_Lidar_SLAM/Drivinggaussian.md
+  - RL: 
+    - 3D Gaussian Splatting: src/RL/gaussian-splatting/gaussian-splatting.md
 
 
 markdown_extensions: 
