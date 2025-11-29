@@ -1,0 +1,28 @@
+/* Tab container */
+.md-typeset .tabbed-set {
+    margin: 1em 0;
+    border-radius: 0.2rem;
+}
+  
+/* Tab labels */
+.md-typeset .tabbed-labels {
+    border-bottom: 2px solid var(--md-default-fg-color--lightest);
+}
+  
+/* Active tab */
+.md-typeset .tabbed-labels > label:checked {
+    color: var(--md-accent-fg-color);
+    border-bottom-color: var(--md-accent-fg-color);
+}
+  
+/* Tab content */
+.md-typeset .tabbed-content {
+    padding: 1em 0;
+}
+  
+/* Tab hover effect */
+.md-typeset .tabbed-labels > label:hover {
+    color: var(--md-accent-fg-color);
+    cursor: pointer;
+}
+  

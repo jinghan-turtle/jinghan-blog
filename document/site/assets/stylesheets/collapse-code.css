@@ -1,0 +1,116 @@
+:root>* {
+    --highlight-svg-arrow-expand: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 21v-2H6.41l4.5-4.5-1.41-1.41-4.5 4.5V14H3v7zm4.5-10.09 4.5-4.5V10h2V3h-7v2h3.59l-4.5 4.5z"/></svg>');
+    --highlight-svg-arrow-collapse: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3.09 15 7.59V4h-2v7h7V9h-3.59l4.5-4.5zM4 13v2h3.59l-4.5 4.5 1.41 1.41 4.5-4.5V20h2v-7z"/></svg>')
+}
+
+.md-typeset .collapse-code {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em
+}
+
+.md-typeset .collapse-code pre {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.md-typeset .collapse-code input {
+    display: none
+}
+
+.md-typeset .collapse-code input~.code-footer {
+    width: 100%;
+    margin: 0;
+    padding: .25em .5em .25em 0em
+}
+
+.md-typeset .collapse-code input~.code-footer label {
+    position: relative;
+    margin: .05em;
+    padding: .15em .8em;
+    color: var(--md-accent-fg-color);
+    font-size: 90%;
+    background-color: var(--md-primary-fg-color);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    border-radius: .1rem;
+    cursor: pointer;
+    content: ""
+}
+
+.md-typeset .collapse-code input~.code-footer label:hover {
+    background-color: var(--md-accent-fg-color)
+}
+
+.md-typeset .collapse-code input~.code-footer label::before {
+    position: absolute;
+    top: .15em;
+    left: .15em;
+    display: block;
+    box-sizing: border-box;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: #FFFFFF;
+    background-size: 1.25em;
+    content: ""
+}
+
+.md-typeset .collapse-code input~.code-footer label.expand {
+    display: none
+}
+
+.md-typeset .collapse-code input~.code-footer label.expand::before {
+    -webkit-mask-image: var(--highlight-svg-arrow-expand);
+    mask-image: var(--highlight-svg-arrow-expand)
+}
+
+.md-typeset .collapse-code input~.code-footer label.collapse::before {
+    -webkit-mask-image: var(--highlight-svg-arrow-collapse);
+    mask-image: var(--highlight-svg-arrow-collapse)
+}
+
+.md-typeset .collapse-code input:checked~.code-footer label.expand {
+    display: inline
+}
+
+.md-typeset .collapse-code input:checked~.code-footer label.collapse {
+    display: none
+}
+
+.md-typeset .collapse-code input:checked+div.highlight code {
+    max-height: 9.375em;
+    overflow: hidden
+}
+
+.md-typeset .collapse-code input:checked~.code-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2em .5em .5em .8rem;
+    background-image: linear-gradient(to bottom, transparent, var(--md-default-bg-color) 80% 100%)
+}
+
+.md-typeset .tabbed-alternate.tabbed-set>.tabbed-content>.tabbed-block>.collapse-code:only-child {
+    margin-top: 0;
+    margin-right: -1.2rem;
+    margin-left: -1.2rem;
+    padding-right: .6rem;
+    padding-left: .6rem
+}
+
+.md-typeset .tabbed-alternate.tabbed-set>.tabbed-content>.tabbed-block>.collapse-code:only-child>.code-footer {
+    left: .6rem
+}
+
+@media screen and (max-width: 44.9375em) {
+    .md-typeset>.collapse-code {
+        margin-right: -0.8rem;
+        margin-left: -0.8rem
+    }
+
+    .md-typeset>.collapse-code label.collapse {
+        left: .8rem
+    }
+}

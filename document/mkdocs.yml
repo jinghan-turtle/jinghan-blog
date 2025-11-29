@@ -1,0 +1,169 @@
+site_name: 3DGS based SLAM | Material Collection
+repo_url: https://github.com/jinghan-turtle/RL-learning
+repo_name: RL-learning
+copyright: Copyright &copy; 2025 jinghan-turtle
+
+
+theme:
+  name: material
+  logo: assets/images/3D-Gaussians.png
+  favicon: assets/images/3D-Gaussians.png
+  custom_dir: overrides
+
+  features:
+    - announce.dismiss
+
+    # Content
+    - content.tooltips
+    - content.tabs.link       # Synchronize tab selection
+    - content.code.copy       # Copy button
+    - content.code.select     # Line selection
+    - content.code.annotate   # Code annotations
+
+    # Search
+    - search.suggest
+    - search.highlight
+    - search.share
+
+    # Navigation
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    # - navigation.top
+    - navigation.footer
+    - navigation.prune    # Render only visible items
+
+    # - toc.follow
+    - toc.integrate  # Merge with sidebar
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: Morandi-light
+      accent: amber
+
+
+nav:
+  - Survey:
+    - Summary: index.md
+    - Related Material: src/Survey/related-material.md
+    - 3DGS-SLAM Paper List: src/Survey/paper-list.md
+  - 3DGS: 
+    - 3D Gaussian Splatting: src/3DGS/gaussian-splatting/gaussian-splatting.md
+    - Visual SLAM:
+      - SplaTAM: src/3DGS/3DGS-based_Visual_SLAM/SplaTAM.md
+      # - Gaussian Splatting SLAM: src/3DGS/3DGS-based_Visual_SLAM/Gaussian-Splatting-SLAM.md
+      - Photo-SLAM: src/3DGS/3DGS-based_Visual_SLAM/Photo-SLAM.md
+      - GS-ICP SLAM: src/3DGS/3DGS-based_Visual_SLAM/GS-ICP-SLAM.md
+      - SEGS-SLAM: src/3DGS/3DGS-based_Visual_SLAM/SEGS-SLAM.md
+    - Dynamic SLAM:
+      - src/3DGS/3DGS-based_Dynamic_SLAM/WildGS-SLAM.md
+      - src/3DGS/3DGS-based_Dynamic_SLAM/4D-Gaussian-Splatting-SLAM.md
+    - Semantic SLAM:
+      - src/3DGS/3DGS-based_Semantic_SLAM/SGS-SLAM.md
+    - Outdoor SLAM:
+      - src/3DGS/3DGS-based_Outdoor_SLAM/S3PO-GS-SLAM.md
+    # - Lidar SLAM:
+    #   - src/3DGS/3DGS-based_Lidar_SLAM/Drivinggaussian.md
+
+
+markdown_extensions: 
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+
+  - pymdownx.arithmatex:
+      generic: true
+
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+
+  - pymdownx.highlight:
+      anchor_linenums: true             # Anchor line numbers
+      line_spans: __span                # Line span classes
+      pygments_lang_class: true         # Add language class
+      guess_lang: false                 # Disable language guessing
+      use_pygments: true                # Use Pygments
+      auto_title: false                 # Auto-generate titles
+      linenums_style: pymdownx-inline   # Line number style
+      linenums: false                   # Line number show
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+      preserve_tabs: true         # Preserve tab characters
+
+  - pymdownx.tabbed:
+      alternate_style: true       # Required for Material theme
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - tables
+
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      toc_depth: 3
+
+  - tools.collapse_code:
+      expand_text: ''
+      collapse_text: ''
+
+
+extra:
+  generator: false
+  homepage: https://jinghan-turtle.github.io/RL-learning/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jinghan-turtle/RL-learning
+      name: Github
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<caijinghan@sjtu.edu.cn>
+      name: Email me
+
+
+extra_css:
+  - assets/stylesheets/code.css
+  - assets/stylesheets/theme.css
+  - assets/stylesheets/search.css
+  - assets/stylesheets/navigation.css
+  - assets/stylesheets/collapse-code.css
+  - assets/stylesheets/tables-lists.css
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap
+  - https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap
+  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap
+
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

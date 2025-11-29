@@ -1,0 +1,37 @@
+[data-md-color-scheme="Morandi-light"] {
+    --md-primary-fg-color: #E5E2B9;  /* The background color of the top bar or header */
+    --md-primary-bg-color: #404040;  /* The font color of the top bar or header */
+    
+    --md-footer-bg-color: #F3EEEA;  /* The background color of the bottom bar or footer */
+    --md-footer-fg-color: #606060;  /* The font color of the bottom bar or footer */
+
+    --md-footer-bg-color--dark: #E5E2B9;  /* The background color of the last or end footer */
+    --md-footer-fg-color--light: #404040;  /* The font color of the last or end footer */
+
+    --md-typeset-a-color: #9a7549;  /* the highlight color of font */
+    --md-accent-fg-color: #91a0a5;  /* the color of link while activated */
+}
+
+:root {
+    --md-text-font: "Noto Serif SC", "Noto Serif SC";
+    --md-code-font: "Roboto Mono", "Noto Serif SC";
+}
+
+/* Increase base font size */
+.md-typeset {
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.md-typeset code {
+    font-size: .75rem;
+}
+
+.md-typeset pre {
+    line-height: 1.65;
+}
+
+/* modify the page width */
+.md-grid {
+  max-width: 1610px;
+}

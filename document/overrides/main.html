@@ -1,0 +1,13 @@
+<!-- docs/overrides/main.html -->
+{% extends "base.html" %}
+
+{% block libs %}
+  {{ super() }}
+  <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tables = document.querySelectorAll("article table:not([class])");
+      tables.forEach(table => new Tablesort(table));
+    });
+  </script>
+{% endblock %}
