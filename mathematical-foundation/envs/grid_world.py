@@ -28,7 +28,6 @@ class GridWorld(gym.Env):
         self._agent_location = (0, 0)
         self.target_state = (3, 2)
         self.forbidden_states = [(1,1), (1,2), (2,2), (2,6), (3,1), (3,3), (4,1), (4,3), (4,5), (5,1), (5,4), (6,2)]
-        # self.forbidden_states = [(1,1), (1,2), (2,2), (3,1), (3,3), (4,1)]
 
         # define the reward map
         self.rewards = {}

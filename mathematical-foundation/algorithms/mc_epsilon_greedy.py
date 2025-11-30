@@ -12,7 +12,7 @@ class MCEpsilonGreedy:
     - Q-values are updated based on the current trajectory (batch), ignoring stale history from old policies.
     """
 
-    def __init__(self, env, gamma=0.9, epsilon=0.1, min_epsilon=0.1, decay_rate=0.999, num_episodes=100, max_episode_steps=1000):
+    def __init__(self, env, gamma=0.9, epsilon=0.1, min_epsilon=0.1, decay_rate=0.999, num_episodes=1000, max_episode_steps=1000):
         self.env = env
         self.gamma = gamma
         
@@ -39,6 +39,9 @@ class MCEpsilonGreedy:
         
         # Global visits (for logging/debugging, similar to reference)
         self.visits = {(s, a): 0 for s in self.states for a in self.actions}
+
+        self.returns_sum = {(s, a): 0.0 for s in self.states for a in self.actions}
+        self.returns_count = {(s, a): 0 for s in self.states for a in self.actions}
 
     def _generate_episode(self, start_state):
         """ 
@@ -79,31 +82,17 @@ class MCEpsilonGreedy:
             # 1. Generate an episode (On-Policy)
             episode = self._generate_episode(start_state)
             
-            # [CORRECTION] Reset local statistics for this iteration
-            # Reference Monte_Carlo.py: return_temp and num_temp are zeroed each iteration
-            return_temp = {}
-            num_temp = {}
-            
             G = 0
             # 2. Iterate backwards
             for t in range(len(episode) - 1, -1, -1):
                 s, a, r = episode[t]
                 G = self.gamma * G + r
                 
-                # Init local stats if needed
-                if (s, a) not in return_temp:
-                    return_temp[(s, a)] = 0
-                    num_temp[(s, a)] = 0
-
-                # Accumulate returns for this batch
-                return_temp[(s, a)] += G
-                num_temp[(s, a)] += 1
+                self.returns_sum[(s, a)] += G
+                self.returns_count[(s, a)] += 1
                 
-                # [CORRECTION] Update Q-value
-                # Instead of incremental average over all history, we overwrite Q 
-                # with the average return observed in THIS current trajectory/policy.
-                # Q[s, a] = return_temp[s, a] / num_temp[s, a]
-                self.q_value[(s, a)] = return_temp[(s, a)] / num_temp[(s, a)]
+                # 更新 Q 值 = 总回报 / 总次数
+                self.q_value[(s, a)] = self.returns_sum[(s, a)] / self.returns_count[(s, a)]
                 
                 # --- Policy Improvement (Epsilon-Greedy) ---
                 # Find best action based on updated Q
@@ -128,7 +117,7 @@ class MCEpsilonGreedy:
                 # Update state value for visualization
                 self.value[s] = best_q
             
-            if (epoch + 1) % 10 == 0:
+            if (epoch + 1) % 50 == 0:
                 print(f"MC Epsilon-Greedy: Epoch {epoch+1}/{self.num_episodes} completed. Epsilon: {self.epsilon:.4f}")
 
     def get_policy(self):
